@@ -3,7 +3,7 @@
     EN.605.201.83.SU19
     Assignment 1
     06/02/19
-    
+
 
 
 */
@@ -23,7 +23,8 @@ public class BMI
     double weightKg = 0;      // Init weight conversion
     double heightM  = 0;      // Init height conversion
 
-    double bmi      = 0;      // Init calculated bmi
+    double actual  = 0;
+    float bmi      = 0;      // Init calculated bmi
 
 
     System.out.println("\n\n");
@@ -36,12 +37,13 @@ public class BMI
     weightKg = weightInput * .45349237 ;            // convert weight
     heightM  = heightInput * .0254 ;                // convert height
 
-    bmi = weightKg / (heightM * heightM);           // calculate BMI
+    actual = weightKg / (heightM * heightM);        // calculate BMI
 
+    bmi = (float) actual;                           //simplify BMI
 
     // Output BMI and Chart
     System.out.println("\n");
-    System.out.println("--------------------------------");
+    System.out.println("-------------------------------");
     System.out.println("Your Body Mass Index: " + bmi);
     System.out.println("-------------------------------");
     System.out.println("\n");
