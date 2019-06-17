@@ -18,18 +18,34 @@ public class Problem1
 
     Scanner input = new Scanner( System.in );
 
-    int maxAster = 0;
-    int direction = 0;
-    int i;
-    int j = 1;
 
+
+    /*
+      -Declare Variables
+      -Get max number of asterisks
+      -Get pattern direction
+      -Output asterisks pattern
+    */
+
+
+
+    int maxAster = 0;  // declare max asterisks
+    int direction = 0; // declare direction
+    int i;             // declare line iterator
+    int j = 1;         // declare amount per line iterator
+
+
+    // Get max number of asterisks
     System.out.print( "Please enter the maximun number of Asterisks:" );  // promt for weight
-    maxAster = input.nextInt();                  // Input weight value
+    maxAster = input.nextInt();                  // Input max asterisks
 
+    // Get pattern direction
     System.out.print( "Please Enter 1 for ascending pattern or 2 for descending pattern:" );  // promt for weight
-    direction = input.nextInt();                  // Input weight value
+    direction = input.nextInt();                  // Input direction
 
 
+
+    // Output ascending asterisks pattern
     if(direction == 1 ){
       for(i = 1; i <= maxAster;i++){
         while(j <= i ){
@@ -42,7 +58,7 @@ public class Problem1
     }
 
 
-
+    // Output descending asterisks pattern
     if(direction == 2){
       for(i = maxAster; i >= 1 ;i--){
         while(j <= i ){
