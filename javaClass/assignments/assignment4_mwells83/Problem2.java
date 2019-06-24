@@ -29,6 +29,22 @@ public class Problem2
   }
 
 
+  /*
+  printMonthCalender
+
+
+  Pre-Conditions:
+  An iteger month, January = 1, Febuary = 2, ... December = 12
+  An iteger year, the full year (2013, 2012)
+
+  Post-Conditions:
+  Prints the calender for the month and year parmaters
+  -Header ==> the Month Name, the Year, Days of the Week
+  -Body ==> The days of the month, location based on the day of the week
+  Nothing is returned
+
+  */
+
 
 
   public static void printMonthCalender(int month, int year)
@@ -42,7 +58,19 @@ public class Problem2
   }
 
 
+  /*
+  printMonthHeader
 
+
+  Pre-Conditions:
+  An iteger month, January = 1, Febuary = 2, ... December = 12
+  An iteger year, the full year (2013, 2012)
+
+  Post-Conditions:
+  Prints The month, Year, Line Seperator, and the days of the week
+  Returns Nothing
+
+  */
 
   public static void printMonthHeader(int month, int year)
   {
@@ -54,6 +82,20 @@ public class Problem2
 
 
   }
+
+
+
+
+    /*
+    printMonthBody
+
+
+    Pre-Conditions:
+    An iteger month, January = 1, Febuary = 2, ... December = 12
+    An iteger year, the full year (2013, 2012)
+
+    Post-Conditions:
+    */
 
 
   public static void printMonthBody(int month, int year)
@@ -119,6 +161,20 @@ public class Problem2
     }
   }
 
+
+
+
+    /*
+    getNumDaysInMonth
+
+
+    Pre-Conditions:
+    An iteger month, January = 1, Febuary = 2, ... December = 12
+    An iteger year, the full year (2013, 2012)
+
+    Post-Conditions:
+    Returns an int of the number of days in the month of the given year
+    */
 
 
   public static int getNumDaysInMonth(int month, int year)
@@ -187,6 +243,19 @@ public class Problem2
   }
 
 
+  /*
+  isLeapYear
+
+
+  Pre-Conditions:
+  An iteger year, the full year (2013, 2012)
+
+  Post-Conditions:
+  returns a boolean value
+   if true the year was a leap year
+   if false the year was a common year
+
+  */
   public static boolean isLeapYear(int year)
   {
       boolean  leapYearBool = false;
@@ -206,6 +275,19 @@ public class Problem2
       return(leapYearBool);
 
   }
+
+  /*
+  getMonthName
+
+
+  Pre-Conditions:
+  An iteger month, January = 1, Febuary = 2, ... December = 12
+
+
+  Post-Conditions:
+  Returns a string of the full name of the month
+
+  */
 
 
 
