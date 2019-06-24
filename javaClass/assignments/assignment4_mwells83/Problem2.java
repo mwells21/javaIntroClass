@@ -77,7 +77,7 @@ public class Problem2
 
       String monthName = getMonthName(month);
       System.out.print("\t"+ monthName + "  " + year + "\n" );
-      System.out.println("-----------------------------");
+      System.out.println("----------------------------");
       System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
 
 
