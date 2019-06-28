@@ -5,7 +5,7 @@ This repo is a collection of assignments, files, and code for Introduction to Pr
 Assignements contains a folder for each submitted weekly assignment and the corresponding zip file that was submitted 
 
 ### Sandbox 
-Sandbox contains random code created to mess around with java 
+Sandbox contains random code created to mess around with java and some code used for discussion material
 
 ### Disclosure
 I do NOT push any code to git hub until after the homework submission deadline 
