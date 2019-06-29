@@ -14,9 +14,6 @@ public class MorseCodeTranslator
     translator();
 
 
-//String inputString = input.nextLine();
-
-
   }
 
 
@@ -34,25 +31,39 @@ public class MorseCodeTranslator
     response = input.nextInt();
 
     if(response == 1 ){
-      System.out.println("_______________________");
-      System.out.println("Morse Code --> English\n");
-      System.out.print("Enter Morse Code:");
-      String inputString = input.nextLine();
-      System.out.println(inputString);
-
+      morse2english();
     }
 
     if(response == 2 ){
-      System.out.println("_______________________");
-      System.out.println("English --> Morse Code\n");
-      System.out.print("Enter English:");
-      String inputString = input.nextLine();
-      System.out.println(inputString);
+      english2morse();
     }
-
 
   }
 
+
+  public static void english2morse()
+  {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("_______________________");
+    System.out.println("English --> Morse Code\n");
+    System.out.print("Enter English:");
+    String inputString = input.nextLine();
+    System.out.println(inputString);
+  }
+
+
+  public static void morse2english()
+  {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("_______________________");
+    System.out.println("Morse Code --> English\n");
+    System.out.print("Enter Morse Code:");
+    String inputString = input.nextLine();
+    System.out.println(inputString);
+
+  }
 
 
 }
