@@ -49,7 +49,13 @@ public class MorseCodeTranslator
     System.out.println("English --> Morse Code\n");
     System.out.print("Enter English:");
     String inputString = input.nextLine();
-    System.out.println(inputString);
+
+    int letterIndex = 0;
+    char letter;
+    for(letterIndex = 0; letterIndex < inputString.length() ; letterIndex++){
+      letter = inputString.charAt(letterIndex);
+      System.out.println(letter);
+    }
   }
 
 
@@ -64,6 +70,12 @@ public class MorseCodeTranslator
     System.out.println(inputString);
 
   }
+
+  public static String searchTranslationArray(char letter, String morse, int direction ){
+
+
+  }
+
 
 
 }
