@@ -13,23 +13,25 @@ public class MorseCodeTranslator
   {
     translator();
 
-
   }
 
 
   public static void translator()
   {
-    Scanner input = new Scanner(System.in);
-
+    Scanner input = new Scanner(System.in); // init scaner
     int response = 0;
 
+
+    // Header
     System.out.println( "-----------MORSE CODE TRANSLATOR-----------");
     System.out.println( "___________________________________________");
     System.out.println( "To translate Morse Code --> English enter 1");
     System.out.println( "To translate English --> Morse Code enter 2");
 
+    //Get user input
     response = input.nextInt();
 
+    // call the right translator methods based on the user input
     if(response == 1 ){
       morse2english();
     }
@@ -40,11 +42,28 @@ public class MorseCodeTranslator
 
   }
 
+  /*
+  english2morse
 
+  goal of the mehtod is to translate english to morse code
+  -promts user for text to translated
+  -call the 'searchTranslationArray' method for each english letter
+  -binds all the translated strings together
+  -prints translated morse code string
+
+  Pre-Conditions:
+  requires Nothing
+
+  Post-Conditions:
+  prints translation
+
+
+  */
   public static void english2morse()
   {
     Scanner input = new Scanner(System.in);
 
+    // header and promt
     System.out.println("_______________________");
     System.out.println("English --> Morse Code\n");
     System.out.print("English:");
@@ -72,6 +91,25 @@ public class MorseCodeTranslator
 
   }
 
+
+  /*
+  morse2english
+
+  function of the mehtod is to translate morse code to english
+  -promts user for text to translated
+  -splits user input into each morse code letter
+  -call the 'searchTranslationArray' method for each morse code string letter
+  -binds all the translated strings together
+  -prints translated english string
+
+  Pre-Conditions:
+  requires Nothing
+
+  Post-Conditions:
+  prints translation
+
+
+  */
 
   public static void morse2english()
   {
@@ -110,7 +148,21 @@ public class MorseCodeTranslator
 
 
 
+  /*
+  searchTranslationArray
+  called by either morse2english or english2morse
+  translates strings of morse code and english 
 
+  Pre-Conditions:
+  string letterString (string of english )
+  String morseString (string of morse code )
+  int direction (1:morse=>english, 2:english=>morse)
+
+  Post-Conditions:
+  string output (translated string)
+
+
+  */
 
 
   public static String searchTranslationArray(String letterString, String morseString, int direction ){
