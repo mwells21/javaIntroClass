@@ -11,6 +11,37 @@ public class EmployeeModel
 {
   public static void main( String [] args )
   {
+    int repeat = 1;
+    int response = 0;
+    Scanner input = new Scanner(System.in); // init scaner
+
+    while(repeat == 1 ){
+      System.out.println( "___________________________________________");
+      System.out.println( "Enter (1) to add Employee");
+      System.out.println( "Enter (2) to see List of Employees");
+      System.out.println( "Enter (3) to quit");
+      response = inout.nextInt();
+      if(response == 1 ){
+
+      }
+
+      if(response == 2 ){
+
+      }
+
+      if(response == 3 ){
+        System.out.println( "--Goodbye--");
+        repeat = 0;
+      }
+
+
+
+
+    }
+
+
+
+
     Date d1 = new Date(6,25,1996);
     //System.out.println(d1.getDateString());
 
