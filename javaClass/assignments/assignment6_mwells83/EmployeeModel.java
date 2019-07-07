@@ -12,15 +12,20 @@ public class EmployeeModel
   public static void main( String [] args )
   {
     Date d1 = new Date(6,25,1996);
-    System.out.println(d1.getDateString());
+    //System.out.println(d1.getDateString());
 
     Name n1 = new Name("Michael","Wells");
-    System.out.println(n1.getFirstName());
-    System.out.println(n1.getLastName());
-    System.out.println(n1.getFullName());
+    //System.out.println(n1.getFirstName());
+    //System.out.println(n1.getLastName());
+    //System.out.println(n1.getFullName());
 
     Address addy1 = new Address("Curtis Rd","Northville","MI",48168);
-    System.out.println(addy1.getAddressString());
+    //System.out.println(addy1.getAddressString());
+
+
+
+    Employee emp1 = new Employee(1,n1,addy1,d1);
+    System.out.println(emp1.getEmployeeSummary());
 
   }
 }
