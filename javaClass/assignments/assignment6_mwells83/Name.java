@@ -3,12 +3,15 @@ public class Name
   private String firstName;
   private String lastName;
 
+  // constructor
   public Name( String first, String last )
   {
     firstName = first;
     lastName  = last;
   }
 
+
+  //default constructor
   public Name()
   {
     firstName = "None";

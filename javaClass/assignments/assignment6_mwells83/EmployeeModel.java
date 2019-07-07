@@ -13,19 +13,49 @@ public class EmployeeModel
   {
     int repeat = 1;
     int response = 0;
+    int strucIter = 0;
+    int employeesAdded = 0;
+
     Scanner input = new Scanner(System.in); // init scaner
+
+    // Build an Array with default Employees using the default constructor
+    Employee[] employeeArray = new Employee[10];
+
+    for(strucIter = 0; strucIter < employeeArray.length;strucIter++ ){
+      Employee tmp = new Employee();
+      employeeArray[strucIter] = tmp;
+    }
+
 
     while(repeat == 1 ){
       System.out.println( "___________________________________________");
       System.out.println( "Enter (1) to add Employee");
       System.out.println( "Enter (2) to see List of Employees");
       System.out.println( "Enter (3) to quit");
-      response = inout.nextInt();
+      response = input.nextInt();
+
+
       if(response == 1 ){
+
+        Employee emp = addEmployee();
+        employeeArray[employeesAdded] = emp;
+        employeesAdded = employeesAdded + 1;
+
 
       }
 
       if(response == 2 ){
+        System.out.println( "___________________________________________");
+        if(employeesAdded == 0){
+          System.out.println("No Employees Added...");
+        } else {
+          for(int summary = 0; summary < employeesAdded; summary++){
+            System.out.println( "-------------------------");
+            System.out.println(employeeArray[summary].getEmployeeSummary());
+            System.out.println( "-------------------------");
+          }
+        }
+        System.out.println( "___________________________________________");
 
       }
 
@@ -33,31 +63,64 @@ public class EmployeeModel
         System.out.println( "--Goodbye--");
         repeat = 0;
       }
-
-
-
-
     }
+  }
 
 
 
 
-    Date d1 = new Date(6,25,1996);
-    //System.out.println(d1.getDateString());
+  public static Employee addEmployee()
+  {
+    Scanner input = new Scanner(System.in); // init scaner
+    System.out.println( "___________________________________________");
+    System.out.println( "Add Employee");
+    System.out.println( "");
+    System.out.println( "Employee Number:");
+    int empNumber = input.nextInt();
+    System.out.println( "Employee Name:");
+    System.out.println( "___________________________________________");
+    System.out.println( "Employee First Name:");
+    input.nextLine(); // Had to add this or it would skip the next input
+    String empFirstName = input.nextLine();
+    System.out.println( "Employee Last Name:");
+    String empLastName = input.nextLine();
 
-    Name n1 = new Name("Michael","Wells");
-    //System.out.println(n1.getFirstName());
-    //System.out.println(n1.getLastName());
-    //System.out.println(n1.getFullName());
+    System.out.println( "Hire Date");
+    System.out.println( "___________________________________________");
+    System.out.println( "Hire Day:");
+    int empHireDay = input.nextInt();
+    System.out.println( "Hire Month:");
+    int empHireMonth = input.nextInt();
+    System.out.println( "Hire Year:");
+    int empHireYear = input.nextInt();
 
-    Address addy1 = new Address("Curtis Rd","Northville","MI",48168);
-    //System.out.println(addy1.getAddressString());
+    System.out.println( "Employee Address");
+    System.out.println( "___________________________________________");
+    System.out.println( "Street:");
+    input.nextLine();// Had to add this or it would skip the next input
+    String empStreet = input.nextLine();
+    System.out.println( "City:");
+    String empCity = input.nextLine();
+    System.out.println( "State (2 Letter abbr):");
+    String empState = input.nextLine();
+    System.out.println( "Zip (5 digits)");
+    int empZip = input.nextInt();
 
-    Employee[] employeeArray = new Employee[10];
+    Date d1 = new Date(empHireDay,empHireMonth,empHireYear);
+    Name n1 = new Name(empFirstName,empLastName);
+    Address addy1 = new Address(empStreet,empCity,empState,empZip);
+    Employee emp1 = new Employee(empNumber,n1,addy1,d1);
 
-    Employee emp1 = new Employee(1,n1,addy1,d1);
-    employeeArray[0] = emp1;
-    System.out.println(employeeArray[0].getEmployeeSummary());
+    return(emp1);
+
+
+
+
 
   }
+
+
+
+
+
 }

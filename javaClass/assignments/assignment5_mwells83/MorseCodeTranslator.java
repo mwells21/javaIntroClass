@@ -151,7 +151,7 @@ public class MorseCodeTranslator
   /*
   searchTranslationArray
   called by either morse2english or english2morse
-  translates strings of morse code and english 
+  translates strings of morse code and english
 
   Pre-Conditions:
   string letterString (string of english )
