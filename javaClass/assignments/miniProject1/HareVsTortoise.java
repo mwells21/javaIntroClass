@@ -16,6 +16,7 @@ public class HareVsTortoise
     int finishLine = 0;
     int harePosition = 0;
     int tortPosition = 0;
+    int turn = 1;
     char hare = 'H';
     char tort = 'T';
 
@@ -25,21 +26,40 @@ public class HareVsTortoise
 
 
     while(finishLine == 0){
+
+      // calc new postions for both the tort and hare
       harePosition = newPosition(harePosition, hare);
       tortPosition = newPosition(tortPosition, tort);
+
+
       System.out.println("###################################################");
+
+      // Print new postion for hare
       for(int space = 0; space <= harePosition;space++){
               System.out.print(" ");
       }
       System.out.print("H");
       System.out.println();
+
+      // Print new postion for tort
       for(int space = 0; space <= tortPosition;space++){
               System.out.print(" ");
       }
       System.out.print("T");
       System.out.println();
+
+
       System.out.println("###################################################");
+      System.out.println("Turn:"+turn);
+      System.out.println("--------------");
+      System.out.println("Hare Postion:"+ harePosition);
+      System.out.println("Tort Postion:"+ tortPosition);
+      System.out.println("--------------");
+      //check postions and see if a player has won
       finishLine = finishRace(harePosition, tortPosition);
+      turn = turn + 1;
+      System.out.println();
+
     }
 
   }
@@ -53,7 +73,7 @@ public static int finishRace(int harePosition, int tortPosition){
 
   if(harePosition >=50 & tortPosition >=50){
       raceDescion = 1;
-      System.out.println("ITS A TIE");
+      System.out.println("ITS A TIE!!");
   }else {
     if(harePosition >=50){
       raceDescion = 1;
@@ -61,7 +81,7 @@ public static int finishRace(int harePosition, int tortPosition){
     }
     if(tortPosition >=50){
       raceDescion = 1;
-      System.out.println("TORTOISE WINS");
+      System.out.println("TORTOISE WINS!!");
     }
   }
 
@@ -70,19 +90,37 @@ public static int finishRace(int harePosition, int tortPosition){
 
 }
 
+/*
+newPosition()
+
+Input:int oldPosition, char racer
+old postion and a char representing which racer to calc for
+
+Output: return(outputPostion);
+Only needs to send back the new location
+
+
+-This makes sure eachpostion can only go back to 0
+
+
+
+*/
+
 
 public static int newPosition(int oldPosition, char racer){
   int outputPostion = 0;
+
+
   if(racer == 'H'){
     int[] hareMoveArray;
     hareMoveArray = hareMove();
-    if(hareMoveArray[1] == 1){
+    if(hareMoveArray[1] == 1){ // if direction is positive just add the postions
       outputPostion = oldPosition + hareMoveArray[0];
     }else{
-      if(hareMoveArray[0] > oldPosition){
+      if(hareMoveArray[0] > oldPosition){ // if it would create a negative number the postion will be set to 0
         outputPostion = 0;
       }else{
-        outputPostion = oldPosition - hareMoveArray[0];
+        outputPostion = oldPosition - hareMoveArray[0]; // other wise the difference equals the postion
       }
     }
   }
@@ -90,13 +128,13 @@ public static int newPosition(int oldPosition, char racer){
   if(racer == 'T'){
     int[] tortMoveArray;
     tortMoveArray = tortMove();
-    if(tortMoveArray[1] == 1){
+    if(tortMoveArray[1] == 1){// if direction is positive just add the postions
       outputPostion = oldPosition + tortMoveArray[0];
     }else{
-      if(tortMoveArray[0] > oldPosition){
+      if(tortMoveArray[0] > oldPosition){// if it would create a negative number the postion will be set to 0
         outputPostion = 0;
       }else{
-        outputPostion = oldPosition - tortMoveArray[0];
+        outputPostion = oldPosition - tortMoveArray[0];// other wise the difference equals the postion
       }
     }
 
@@ -107,6 +145,10 @@ public static int newPosition(int oldPosition, char racer){
 }
 
 
+
+// Both the hareMove and the tortMove methods
+// calculate a random number between 1 and 10
+// then return the corrsponding postion and direction
 
 
 public static int[] hareMove()
