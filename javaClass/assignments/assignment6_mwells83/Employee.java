@@ -1,9 +1,9 @@
 public class Employee
 {
-  private int number;
-  private Name name;
-  private Date date;
-  private Address address;
+  protected int number;
+  public Name name;
+  protected Date date;
+  protected Address address;
 
   //  constructor
   public Employee(int num, Name employeeName, Address employeeAddress, Date hireDate)
