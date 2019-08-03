@@ -17,7 +17,7 @@ public class IncomePropertyReport
 
     final String fileName = "/home/mwe11s/github/javaIntroClass/javaClass/assignments/assignment10_mwells83/test.dat";
     int fileLength = 13486;
-    int states = 56;
+    int states = 51;
 
 
     // arrays for the summary outputs
@@ -115,8 +115,11 @@ public class IncomePropertyReport
 
 
       // Print Summary
-
-
+      System.out.println("State\tPopulation\tChild Population\tChild Poverty Population\t% Child Poverty");
+      System.out.println("-----\t----------\t----------------\t------------------------\t -------------");
+      for(int state = 0; state < states; state++ ){
+          System.out.println("   "+stateOut[state]+"\t     "+popOut[state]+"\t      "+childPopOut[state]+"\t\t       "+povOut[state]+"\t                            "+povRatioOut[state]);
+      }
 
 
   }
