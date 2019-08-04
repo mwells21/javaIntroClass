@@ -261,15 +261,29 @@ public class BlackjackGameSimulator
 
             // !!!!!! Need to finish !!!!!!
             // Handle Outcome
-            if(playerScore > dealerScore){
-              System.out.print("You win!!!")
+            boolean playerOutcome = player1.catchBust();
+            boolean dealerOutCome = dealer.catchBust();
+            if(playerOutcome){
+              System.out.println("Dealer Wins.... :(");
+              player1.loosesWager();
+
+            } else if(dealerOutCome){
+              System.out.println("You win!!!");
+              player1.winsWager();
+
+            } else if(playerScore > dealerScore){
+              System.out.println("You win!!!");
+              player1.winsWager();
 
             } else if(playerScore < dealerScore){
-              System.out.print("Dealer Wins.... :(")
+              System.out.println("Dealer Wins.... :(");
+              player1.loosesWager();
 
             } else {
-              System.out.print("Dealer Wins.... :(")
+              System.out.println("... Tie ...");
             }
+
+
 
             // Handle Bets
 

@@ -49,6 +49,17 @@ public class Player extends Actor
   }
 
 
+  public void winsWager()
+  {
+      money = money + wager;
+  }
+
+  public void loosesWager()
+  {
+     money = money - wager;
+  }
+
+
 
 
 
