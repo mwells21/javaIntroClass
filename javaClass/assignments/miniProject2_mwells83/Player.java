@@ -1,4 +1,4 @@
-public class Player
+public class Player extends Actor
 {
   private int money;
   private int wager;
@@ -6,6 +6,7 @@ public class Player
 
   public Player(int money, int wager)
   {
+    super();
     this.money = money;
     this.wager = wager;
 
@@ -21,16 +22,33 @@ public class Player
     return wager;
   }
 
-  public setMoney(int money)
+  public void setMoney(int money)
   {
     this.money = money;
   }
 
-  public setWager(int wager)
+  public void setWager(int wager)
   {
     this.wager = wager;
 
   }
+
+  public void getMoneyString()
+  {
+    System.out.println("You have $"+ money + "...");
+  }
+
+  public boolean allowWager(int bet)
+  {
+    if(bet <= money & bet > 0){
+      return true;
+    } else{
+      return false;
+    }
+
+  }
+
+
 
 
 
