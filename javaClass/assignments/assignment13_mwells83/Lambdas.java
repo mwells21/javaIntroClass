@@ -54,7 +54,7 @@ public class Lambdas
     MyClass maxValObj = Collections.max(al, Comparator.comparing(t -> t.getVal()));
     MyClass minValObj = Collections.min(al, Comparator.comparing(t -> t.getVal()));
     //MyClass avgValObj = al.stream().mapToDouble(t -> t).average().orElse(0.0);
-
+    
 
     //MyClass minValObj = Collections.(al, al.stream.mapToDouble(t -> t.getVal()));
 
