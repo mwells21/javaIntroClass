@@ -1,8 +1,9 @@
-//    Michael Wells
-//    EN.605.201.83.SU19
-//    Mini Project 2
-//    07/28/19
-//
+/**
+  * This Class is a Black Jack Game Simulator.
+  * Its uses the actor class and the player and dealer subclasses
+  * @author Michael Wells
+  * @version 1.0
+*/
 
 
 import java.util.Scanner;
@@ -55,7 +56,9 @@ public class BlackjackGameSimulator
           validBet = player1.allowWager(bet);
           if(validBet){
             int gameResult = 0;
-            while(gameResult == 0){
+            int stillPlaying = 0;
+
+            while(gameResult == stillPlaying){
 
 
               // Game Play
@@ -119,8 +122,9 @@ public class BlackjackGameSimulator
               int choices = 1;
               String hit = "hit";
               String stay = "stay";
+              int decided = 0;
 
-              while(choices != 0){
+              while(choices != decided){
                 System.out.print("hit or stay??:");
                 String choice = input.next();
                 if(choice.equalsIgnoreCase(hit)){
@@ -153,13 +157,13 @@ public class BlackjackGameSimulator
                   // Showing UI
 
                   System.out.println("Dealer Hand:");
-                  dealer.showFirstCard();                   // Show Dealer cards
-                  dealerScore = dealer.getScore();          // Get Score
+                  dealer.showFirstCard();                           // Show Dealer cards
+                  dealerScore = dealer.getScore();                  // Get Score
 
 
                   System.out.println("Your Hand:");
-                  player1.showCards();                      // Show your cards
-                  playerScore = player1.getScore();               // Get Score
+                  player1.showCards();                              // Show your cards
+                  playerScore = player1.getScore();                 // Get Score
 
                   System.out.println("\nYour Score:"+ playerScore); // Show Score
 
@@ -170,8 +174,9 @@ public class BlackjackGameSimulator
 
 
                   int dealerPlay = 0;
+                  int dealerStillPlaying= 0;
 
-                  while(dealerPlay == 0){
+                  while(dealerPlay == dealerStillPlaying){
                     dealerScore = dealer.getScore();
                     playerScore = player1.getScore();
 
@@ -196,22 +201,22 @@ public class BlackjackGameSimulator
                     }
 
                     // Dealer
-                    playedCard = dealer.drawCard();           // Deal Card
-                    dealer.addCard(playedCard);               // Dealer keeps card
-                    dealer.setScore();                        // Calculate Dealer score
+                    playedCard = dealer.drawCard();                 // Deal Card
+                    dealer.addCard(playedCard);                     // Dealer keeps card
+                    dealer.setScore();                              // Calculate Dealer score
 
 
                     // Showing UI
 
                     System.out.println("Dealer Hand:");
-                    dealer.showCards();                       // Show Dealer cards
-                    dealerScore = dealer.getScore();          // Get Score
+                    dealer.showCards();                             // Show Dealer cards
+                    dealerScore = dealer.getScore();                // Get Score
 
                     System.out.println("Dealer Score:" + dealerScore);
 
 
                     System.out.println("Your Hand:");
-                    player1.showCards();                      // Show your cards
+                    player1.showCards();                            // Show your cards
                     playerScore = player1.getScore();               // Get Score
 
                     System.out.println("\nYour Score:"+ playerScore); // Show Score
@@ -243,15 +248,15 @@ public class BlackjackGameSimulator
             // Showing UI
             System.out.println("");
             System.out.println("Dealer Hand:");
-            dealer.showCards();                       // Show Dealer cards
-            int dealerScore = dealer.getScore();          // Get Score
+            dealer.showCards();                               // Show Dealer cards
+            int dealerScore = dealer.getScore();              // Get Score
 
             System.out.println("Dealer Score:" + dealerScore);
 
 
             System.out.println("Your Hand:");
-            player1.showCards();                      // Show your cards
-            int playerScore = player1.getScore();               // Get Score
+            player1.showCards();                              // Show your cards
+            int playerScore = player1.getScore();             // Get Score
 
             System.out.println("\nYour Score:"+ playerScore); // Show Score
             System.out.println("\n\n");
@@ -259,8 +264,7 @@ public class BlackjackGameSimulator
 
 
 
-            // !!!!!! Need to finish !!!!!!
-            // Handle Outcome
+            // Handle Outcome and Wagers
             boolean playerOutcome = player1.catchBust();
             boolean dealerOutCome = dealer.catchBust();
             if(playerOutcome){
@@ -283,9 +287,6 @@ public class BlackjackGameSimulator
               System.out.println("... Tie ...");
             }
 
-
-
-            // Handle Bets
 
 
             // Reset

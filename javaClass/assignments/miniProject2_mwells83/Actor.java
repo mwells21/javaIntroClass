@@ -1,3 +1,12 @@
+/**
+ * The Actor Class contains methods used by both the dealer and the player in Blackjack
+ *
+ * @author Michael Wells
+ * @version 1.0
+
+*/
+
+
 public class Actor
 {
 
@@ -6,7 +15,12 @@ public class Actor
   public int numberOfCards;
 
 
-  // constructor
+  /**
+    *Constructor
+    * -myCards
+    * -myScore
+    * -numberOfCards
+  */
   public Actor()
   {
     myCards = "";
@@ -14,16 +28,31 @@ public class Actor
     numberOfCards = 0;
   }
 
+
+
+  /**
+    *Adds a Card to the actors "hand"
+    *@param card String of the Card to be added ie ("10","K",etc)
+    *
+  */
   public void addCard(String card )
   {
     myCards = myCards + card + " ";
     numberOfCards = numberOfCards + 1;
   }
 
+  /**
+  * Prints to the console the myCards String showing the actos cards
+  */
   public void showCards()
   {
     System.out.println(myCards);
   }
+
+  /**
+  * Prints to the console the first card in your hand, and a * for the second card
+  * To be used by the dealer class
+  */
 
   public void showFirstCard()
   {
@@ -34,20 +63,29 @@ public class Actor
     System.out.println(dealerCard + " *");
   }
 
+  /**
+  * Resets Cards and the score of the cards
+  */
+
   public void resetCards()
   {
     myCards = "";
     myScore = 0;
   }
 
-
+  /**
+  * Returns the score of the actor
+  *@return myScore: the current score of the actor
+  */
   public int getScore()
   {
     return myScore;
   }
 
-
-
+  /**
+  * checks if the actor has 21
+  *@return a boolean value if the actor has a score of 21
+  */
   public boolean catch21()
   {
     if(myScore == 21){
@@ -57,6 +95,10 @@ public class Actor
     }
   }
 
+  /**
+  * checks if the actor has busted
+  *@return a boolean value if the actor has busted
+  */
   public boolean catchBust()
   {
     if(myScore > 21){
@@ -66,6 +108,10 @@ public class Actor
     }
   }
 
+  /**
+  * checks if the actor has more than 17
+  *@return a boolean value if the actor hhas above 17 (will be used mostly for the dealer)
+  */
   public boolean catch17()
   {
     if(myScore > 17){
@@ -77,8 +123,14 @@ public class Actor
 
 
 
-
-
+  /**
+  * setScore is a method that defines the actors point score based on the cards they have
+  * - Defines array of possible cards and points
+  * - Trims myCards
+  * - Splits the myCard String into an array of each card
+  * - Searchs through the index cards and find the corresponding points for the cards
+  * - Adds up the total amount of points and sets it to the actors score
+  */
 
 
   public void setScore()

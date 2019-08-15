@@ -1,8 +1,11 @@
-//    Michael Wells
-//    EN.605.201.83.SU19
-//    Assignment 10
-//    08/04/19
-//
+/**
+  * IncomePropertyReport
+  * Reads in reformated data about child poverty data and prints a report
+  * @param fileLength the number of records to read from the file
+  * @param fileName the name of the file where the text file is located
+  * @author Michael Wells
+  * @version 1.0
+*/
 
 import java.io.*;
 import java.util.*;
@@ -15,8 +18,12 @@ public class IncomePropertyReport
     //define input stream
     DataInputStream in = null;
 
-    final String fileName = "/home/mwe11s/github/javaIntroClass/javaClass/assignments/assignment10_mwells83/test.dat";
-    int fileLength = 13486;
+    //final String fileName = "/home/mwe11s/github/javaIntroClass/javaClass/assignments/assignment10_mwells83/test.dat";
+    final String fileName = args[0];
+    String fileLengthString = args[1];
+    int fileLength = Integer.valueOf(fileLengthString);
+
+    //int fileLength = 13486;
     int states = 51;
 
 
@@ -43,7 +50,7 @@ public class IncomePropertyReport
       int i = 0;
       while( in.available() > 0)
       {
-        // Reconstruct Data
+        // Read in and Reconstruct Data
         stateArray[i] = in.readUTF();
         populationArray[i] = in.readInt();
         childPopulationArray[i] = in.readInt();
@@ -65,28 +72,35 @@ public class IncomePropertyReport
       int totalChild = 0;
       int totalPov = 0;
 
+      float totalPovFloat = 0;
+      float totalChildFloat = 0;
+
       int record = 0;
       int lastLine = fileLength - 1;
 
+
+      // Loop throught the reformated arrays I read in
+      //
+
       for(int j = 0; j < fileLength; j++){
         if(Objects.equals(currentState, stateArray[j])){
+          // Running total for each state as it loops through
           totalPop = totalPop + populationArray[j];
           totalChild = totalChild + childPopulationArray[j];
           totalPov = totalPov + povertyArray[j];
 
         } else {
+          // if the state has changed
+          // Populate the totals to the output array
           stateOut[record] = currentState;
           popOut[record] = totalPop;
           childPopOut[record] = totalChild;
           povOut[record] = totalPov;
-          povRatioOut[record] = totalPov / totalChild ;
+          // Calculate Ration - have to cast to a float to get decimal
+          povRatioOut[record] = (float) totalPov / totalChild* 100 ;
 
-          System.out.println("State:" + stateOut[record]);
-          System.out.println("Pop:" + popOut[record]);
-          System.out.println("Child:" + childPopOut[record] );
-          System.out.println("Pov:" + povOut[record]);
-          System.out.println("Ratio:" + povRatioOut[record]);
 
+          // new states starting population
           currentState = stateArray[j];
           totalPop = populationArray[j];
           totalChild = childPopulationArray[j];
@@ -96,17 +110,14 @@ public class IncomePropertyReport
           record = record + 1 ;
         }
         if(j == lastLine){
+          // populate array
           stateOut[record] = currentState;
           popOut[record] = totalPop;
           childPopOut[record] = totalChild;
           povOut[record] = totalPov;
-          povRatioOut[record] = totalPov / totalChild ;
+          povRatioOut[record] = (float) totalPov / totalChild* 100 ;
 
-          System.out.println("State:" + stateOut[record]);
-          System.out.println("Pop:" + popOut[record]);
-          System.out.println("Child:" + childPopOut[record] );
-          System.out.println("Pov:" + povOut[record]);
-          System.out.println("Ratio:" + povRatioOut[record]);
+
 
         }
 
@@ -115,10 +126,12 @@ public class IncomePropertyReport
 
 
       // Print Summary
+      System.out.println("File:"+ fileName);
+      System.out.println();
       System.out.println("State\tPopulation\tChild Population\tChild Poverty Population\t% Child Poverty");
       System.out.println("-----\t----------\t----------------\t------------------------\t -------------");
       for(int state = 0; state < states; state++ ){
-          System.out.println("   "+stateOut[state]+"\t     "+popOut[state]+"\t      "+childPopOut[state]+"\t\t       "+povOut[state]+"\t                            "+povRatioOut[state]);
+          System.out.println("   "+stateOut[state]+"\t   "+popOut[state]+"\t       "+childPopOut[state]+"\t\t        "+povOut[state]+"\t                     "+povRatioOut[state]);
       }
 
 
