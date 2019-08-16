@@ -11,21 +11,21 @@ import java.util.function.Function;
 public class Lambdas
 {
   public static double lambdaBlock(List<Double> listOfNumbers){
-    double maximum, minimum, median = 0.0;
+    double maximum, minimum, mean = 0.0;
     maximum = listOfNumbers.stream().max(Comparator.comparing(number -> number)).get();
-    System.out.println("Maximum : " + maximum);
+    System.out.println("Max: " + maximum);
     minimum = listOfNumbers.stream().min(Comparator.comparing(number -> number)).get();
-    System.out.println("Minimum : " + minimum);
-    median = listOfNumbers.stream().mapToDouble(number -> number).average().getAsDouble();
-    return median; 
+    System.out.println("Min: " + minimum);
+    mean = listOfNumbers.stream().mapToDouble(number -> number).average().getAsDouble();
+    return mean; 
     }
   public static void main( String [] args )
   {
 
     List<Double> listOfNumbers = Arrays.asList(17.64, 55.56, 36.93, 55.96, 20.23, 41.74, 1.8, 95.97, 81.89, 36.16, 34.41, 87.9, 13.74, 11.15);
     Collections.sort(listOfNumbers);
-    double median = lambdaBlock(listOfNumbers);
-    System.out.println("Median : " + String.format("%.02f", median));
+    double mean = lambdaBlock(listOfNumbers);
+    System.out.println("Mean: " + mean );
 
 
 
@@ -68,9 +68,9 @@ public class Lambdas
     //System.out.println(maxVal);
     //MyClass maxValObj = Collections.max(al, Comparator.comparing(t -> t.getVal()));
     //MyClass minValObj = Collections.min(al, Comparator.comparing(t -> t.getVal()));
-    //al.sort(Comparator.comparingDouble(MyClass::getVal));
-    //double median = al.get(al.size()/2).getVal();
-    //if(al.size()%2 == 0) median = (median + al.get(al.size()/2-1).getVal()) / 2;
+    al.sort(Comparator.comparingDouble(MyClass::getVal));
+    double median = al.get(al.size()/2).getVal();
+    if(al.size()%2 == 0) median = (median + al.get(al.size()/2-1).getVal()) / 2;
 
     //Collections.sort(testDbl, (o1, o2) -> (o1 > o2) ? -1 : 
     //(o1 < o2) ? 1 : 0); 
@@ -86,7 +86,7 @@ public class Lambdas
 
     //System.out.println("Maximum value is: " + maxValObj.getVal());
     //System.out.println("Minimum value is: " + minValObj.getVal());
-    //System.out.println("Median value is: " + median);
+    //System.out.println("Median: " + median);
     //System.out.println("Sorted: " + testDbl);
 
   }
