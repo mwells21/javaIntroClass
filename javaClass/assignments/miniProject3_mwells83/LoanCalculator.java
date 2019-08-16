@@ -1,3 +1,7 @@
+/**
+  * @author Michael Wells
+  * @version 1.0
+*/
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -118,6 +122,9 @@ public class LoanCalculator implements ActionListener{
     String totalPayString = String.valueOf(totalPay);
     String monthsPayString = String.valueOf(monthsPay);
 
+    totalPayString = "$ " + totalPayString;
+    monthsPayString= "$ " + monthsPayString;
+    
     monthlyPayField.setText(monthsPayString);
     totalPayField.setText(totalPayString);
 

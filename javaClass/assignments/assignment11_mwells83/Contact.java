@@ -86,7 +86,6 @@ public class Contact
   * Returns the Summary of the Contact
   *@return a string of all the information of the contact
   */
-  publi
   public String getContactSummary()
   {
     return lastName + ", " + firstName + " -- Number: " + number + " -- Address: " + address;
